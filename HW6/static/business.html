@@ -1,0 +1,148 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: voanit
+ * @Date: 2022-09-10 10:37:12
+ * @LastEditors: voanit
+ * @LastEditTime: 2022-10-07 13:24:49
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Yelp API</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+</head>
+
+<body>
+  <!-- header section -->
+  <div class="search">
+    <div class="header">
+      <h2>Business Search</h2>
+      <h3>Fill out the form to get businesses near you!</h3>
+    </div>
+
+    <!-- information section -->
+    <div class="info">
+      <form id="info_form">
+        <div class="item">
+          <div class="description">Keyword<span>*</span></div>
+          <input type="text" name="term" id="keyword" autofocus required>
+        </div>
+
+        <div class="container">
+          <div class="item" id="dis">
+            <div class="description">Distance(miles)</div>
+            <input type="text" name="radius" id="distance" value="10" required>
+          </div>
+
+          <div class="item" id="cat">
+            <div class="description">Category<span>*</span></div>
+            <select id="select" name="categories">
+              <option selected="selected" value="all">Default</option>
+              <option value="arts">Arts & Entertainment</option>
+              <option value="health">Health & Medical</option>
+              <option value="hotelstravel">Hotels & Travel</option>
+              <option value="food">Food</option>
+              <option value="professional">Professional Services</option>
+            </select> 
+          </div>
+        </div>
+      
+        <div class="item">
+          <div class="description">Location<span>*</span></div>
+          <input required="required" type="text" name="location" id="location">
+        </div>
+
+        <div class="horizental"></div>
+        <div class="check">
+          Want us to auto-detect your location? Check here
+          <input type="checkbox" name="myCheck" id="myCheck">
+        </div>
+
+        <div class="buttom">
+          <input type="button" value="SUBMIT" id="submit">
+          <input type="button" value="CLEAR" id="clear">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- list section -->
+  <div class="list none" id="myList">
+    <table id="table">
+
+    </table>
+  </div>
+
+  <!-- detail section -->
+  <div class="detail none" id="detail">
+    <h1 class="title" id="title"></h1>
+
+    <div class="horizental"></div>
+
+    <div class="items">
+      <ul>
+        <li id="hStatus">
+          <h2>Status</h2>
+          <div class="status" id="status"></div>
+        </li>
+        <li id="hCategories">
+          <h2>Category</h2>
+          <span class="category" id="category"></span>
+        </li>
+        <li id="hAddress">
+          <h2>Address</h2>
+          <span id="address"></span>
+        </li>
+        <li id="hPhone">
+          <h2>Phone Number</h2>
+          <span id="phone"></span>
+        </li>
+        <li id="hTransactions">
+          <h2>Transactions Supported</h2>
+          <span id="transactions"></span>
+        </li>
+        <li id="hPrice">
+          <h2>Price</h2>
+          <span id="price"></span>
+        </li>
+        <li id="hInfo">
+          <h2>More info</h2>
+          <div id="url"></div>
+        </li> 
+      </ul>
+    </div>
+
+    <div class="photos">
+      <ul>
+        <li>
+          <div class="pictures"><img id="first" src="https://t4.ftcdn.net/jpg/04/00/24/31/360_F_400243185_BOxON3h9avMUX10RsDkt3pJ8iQx72kS3.jpg" alt="Picture1"></div>
+          <div class="caption">Photo 1</div>
+        </li>
+        <li>
+          <div class="pictures"><img id="second" src="https://t4.ftcdn.net/jpg/04/00/24/31/360_F_400243185_BOxON3h9avMUX10RsDkt3pJ8iQx72kS3.jpg" alt="Picture2"></div>
+          <div class="caption">Photo 2</div>
+        </li>
+        <li>
+          <div class="pictures"><img id="third" src="https://t4.ftcdn.net/jpg/04/00/24/31/360_F_400243185_BOxON3h9avMUX10RsDkt3pJ8iQx72kS3.jpg" alt="Picture3"></div>
+          <div class="caption">Photo 3</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- No result found section -->
+  <div class="noresult none" id="noresult">
+    No record has been found
+  </div>
+  <script src="index.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> 
+</body>
+
+</html>
