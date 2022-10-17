@@ -4,7 +4,7 @@
  * @Author: voanit
  * @Date: 2022-09-10 10:38:07
  * @LastEditors: voanit
- * @LastEditTime: 2022-10-17 08:42:53
+ * @LastEditTime: 2022-10-17 12:43:10
  */
 const anchor = window.location.href;
 
@@ -340,6 +340,7 @@ window.addEventListener("load", function () {
     document.getElementById("myList").classList.add("none");
     document.getElementById("detail").classList.add("none");
     check_box.checked = false;
+    location.disabled = false;
     document.getElementById("noresult").classList.add("none");
     document.getElementById("table").innerHTML = "";
   });
