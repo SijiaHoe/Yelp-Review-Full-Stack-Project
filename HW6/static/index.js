@@ -4,7 +4,7 @@
  * @Author: voanit
  * @Date: 2022-09-10 10:38:07
  * @LastEditors: voanit
- * @LastEditTime: 2022-10-08 11:39:16
+ * @LastEditTime: 2022-10-17 08:42:53
  */
 const anchor = window.location.href;
 
@@ -53,9 +53,7 @@ window.addEventListener("load", function () {
 
     // convert location to latitude and longitude
     if (check_box.checked == false && check_box.value) {
-      if(!getcoordinates(location.value)){
-        return;
-      }
+      getcoordinates(location.value); 
     }
     else if (check_box.checked == true) {
       location.disabled = true;
@@ -385,7 +383,6 @@ window.addEventListener("load", function () {
       dataType: 'json',
       async: false,
       success: function (data) {
-        console.log(data);
         if (data.results.length != 0) {
           const latitude = data.results[0].geometry.location.lat;
           const longitude = data.results[0].geometry.location.lng;
