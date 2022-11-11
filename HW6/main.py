@@ -4,7 +4,7 @@ version:
 Author: voanit
 Date: 2022-09-10 10:44:00
 LastEditors: voanit
-LastEditTime: 2022-10-10 18:53:52
+LastEditTime: 2022-11-07 20:21:29
 '''
 from flask import Flask, current_app, request
 import settings
@@ -21,21 +21,15 @@ def home():
     return current_app.send_static_file('business.html')
 # send_from_director
 
-@app.route("/test",methods=["GET"])
-def test():
-    print("@@@@ Test Print in Flask.")
-    print(request.args.get("fname"))
-    return "  Page"
-
 @app.route('/search', methods=["GET"])
 def search():
-    print("@@@@@test Print in search()")
     params = {}
     params["term"] = request.args.get("term")
     params["radius"] = request.args.get("radius")
     params["categories"] = request.args.get("categories")
     params["latitude"] = request.args.get("latitude")
     params["longitude"] = request.args.get("longitude")
+    app.logger.info(params)
     jsonData = callYelp(params)
     app.logger.info(type(jsonData))
     return jsonData
@@ -52,9 +46,6 @@ def detail():
 
 # yelp API
 def callYelp(params):
-    # test Print
-    print("@@@@@ test Print in callYelp()")
-    
     search_api_url = "https://api.yelp.com/v3/businesses/search"
     response = requests.get(search_api_url, headers=headers, params=params, timeout=5)
     

@@ -4,7 +4,7 @@
  * @Author: voanit
  * @Date: 2022-09-10 10:38:07
  * @LastEditors: voanit
- * @LastEditTime: 2022-10-17 12:43:10
+ * @LastEditTime: 2022-11-08 11:22:31
  */
 const anchor = window.location.href;
 
@@ -53,7 +53,7 @@ window.addEventListener("load", function () {
 
     // convert location to latitude and longitude
     if (check_box.checked == false && check_box.value) {
-      getcoordinates(location.value); 
+      getcoordinates(location.value);
     }
     else if (check_box.checked == true) {
       location.disabled = true;
@@ -61,6 +61,8 @@ window.addEventListener("load", function () {
     }
 
     console.log(formData);
+    // call yelp api to backend
+    console.log("anchor:" + anchor);
     $.ajax({
       url: anchor + 'search',
       type: 'GET',
@@ -82,16 +84,19 @@ window.addEventListener("load", function () {
 
   // display table section
   function display_table(data) {
+    console.log(data);
     table = document.getElementById('table');
     if (data.length != 0) {
       document.getElementById("myList").classList.remove("none");
-      var html = `<tr>
+      var html = `
+      <tr>
       <th>No.</th>
       <th style="width: 120px;">Image</th>
       <th id="bname"">Business Name</th>
       <th id="rating"">Rating</th>
       <th id="miles"">Distance(miles)</th>
-      </tr>`;
+      </tr>
+ `;
       window.location.href = anchor + "#myList";
     }
     else {
@@ -334,7 +339,7 @@ window.addEventListener("load", function () {
   }
 
 
-  // reset all input
+  // reset all inpui
   clear_btn.addEventListener("click", function () {
     document.getElementById("info_form").reset();
     document.getElementById("myList").classList.add("none");
